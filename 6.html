@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+            <div id="app">
+            	<div id="main">
+            		
+            	</div>
+            	
+            </div>
+        <script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+	
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data: {
+					currentIdx: 0,
+					
+				},
+				mounted() {
+					this.$nextTick(() => {
+			           this.showP();
+		             })
+				},
+				methods:{
+			randomData(){
+			    return Math.round(Math.random() * 10000);
+			},
+	        showP(){
+	        	 
+             let myChart = echarts.init(document.getElementById('main'));
+             axios.get("henan.json").then(function(geoJson) {
+                         echarts.registerMap('河南', geoJson);
+
+                  myChart.setOption({
+           
+            title: {
+                text: "河南省各个地区的城镇化率分布",
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            
+            visualMap: {
+                min: 0,
+                max: 100,
+                left: 'left',
+                top: 'bottom',
+                text: ['高', '低'], // 文本，默认为数值文本
+                calculable: true
+            },
+             toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: 'center',
+                feature: {
+                        dataView: {readOnly: false},
+                        restore: {},
+                        saveAsImage: {}
+                        }
+            },
+            series: [{
+            	name:'河南',
+                type: 'map',
+                mapType: '河南',
+                label: {
+                    normal: {
+                        show: true
+                    },
+                    emphasis: {
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    }
+                },
+                itemStyle: {
+
+                    normal: {
+                        borderColor: '#389BB7',
+                        areaColor: '#fff',
+                    },
+                    emphasis: {
+                        areaColor: '#389BB7',
+                        borderWidth: 0
+                    }
+                },
+                animation: false,
+                
+            data:[
+                {name: '郑州市', value: 86.43},
+                {name: '洛阳市', value: 82.26},
+                {name: '信阳市', value: 50.8276},
+                {name: '驻马店市', value: 50.433},
+                {name: '南阳市', value: 49.668},
+                {name: '周口市', value: 37.0506},
+                {name: '许昌市', value: 53.298},
+                {name: '平顶山市', value: 58.5},
+                {name: '新乡市', value: 76.827},
+                {name: '漯河市', value: 44.476},
+                {name: '商丘市', value: 40.2598},
+                {name: '三门峡市', value: 60.292},
+                {name: '济源市', value: 48.255},
+                {name: '焦作市', value: 69.5938},
+                {name: '安阳市', value: 60.22},
+                {name: '鹤壁市', value: 75.255},
+                {name: '濮阳市', value: 44.927},
+                {name: '开封市', value:56.132 }            ]
+                    
+            }],
+            
+        });
+    });
+		    }
+	        }
+			})
+		</script>
+	</body>
+
+</html>	

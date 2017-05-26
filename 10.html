@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="main" style="width: 900px; height: 900px;"></div>
+		<script src="echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="henan.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			let myChart = echarts.init(document.getElementById('main'));
+			myChart.setOption({
+				title: {
+					text: "2010年河南省各地区的城镇化率分布",
+					left: 'center'
+				},
+				tooltip: {
+					trigger: 'item'
+				},
+
+				visualMap: {
+					min: 0,
+					max: 100,
+					left: 'left',
+					top: 'bottom',
+					text: ['高', '低'], // 文本，默认为数值文本
+					calculable: true
+				},
+				toolbox: {
+					show: true,
+					orient: 'vertical',
+					left: 'right',
+					top: 'center',
+					feature: {
+						dataView: {
+							readOnly: false
+						},
+						restore: {},
+						saveAsImage: {}
+					}
+				},
+				series: [{
+					name: '河南',
+					type: 'map',
+					mapType: "河南",
+					label: {
+						normal: {
+							show: true
+						},
+						emphasis: {
+							textStyle: {
+								color: '#fff'
+							}
+						}
+					},
+					itemStyle: {
+
+						normal: {
+							borderColor: '#389BB7',
+							areaColor: '#fff',
+						},
+						emphasis: {
+							areaColor: '#389BB7',
+							borderWidth: 0
+						}
+					},
+					animation: false,
+
+				   data:[
+                {name: '郑州市', value: 63.6},
+                {name: '开封市', value: 36.0},
+                {name: '洛阳市', value: 44.3},
+                {name: '平顶山市', value: 41.4},
+                {name: '安阳市', value: 38.6},
+                {name: '鹤壁市', value: 48},
+                {name: '新乡市', value: 41.1},
+                {name: '焦作市', value: 47.1},
+                {name: '濮阳市', value: 31.5},
+                {name: '许昌市', value: 39.1},
+                {name: '漯河市', value: 39.2},
+                {name: '三门峡市', value: 44.3},
+                {name: '南阳市', value: 33},
+                {name: '商丘市', value: 29.8},
+                {name: '信阳市', value: 34.4},
+                {name: '周口市', value: 29.7},
+                {name: '驻马店市', value: 29.8},
+                {name: '济源市', value: 49.4},
+                      ]
+
+				}],
+			});
+		</script>
+	</body>
+
+</html>

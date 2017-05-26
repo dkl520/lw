@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="main" style="width: 900px; height: 600px;">
+			 
+		</div>
+		<script src="echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			 let myChart = echarts.init(document.getElementById('main'));
+			 option = {
+    backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+        offset: 0,
+        color: '#f7f8fa'
+    }, {
+        offset: 1,
+        color: '#cdd0d5'
+    }]),
+       title:{
+        text: "乡村聚落的构成要素数据分析",
+        subtext: "关系分析-Acring",
+        top: "top",
+        left: "center"
+    },
+      tooltip: {},
+      legend: [{
+          formatter: function (name) {
+        return echarts.format.truncateText(name, 40, '14px Microsoft Yahei', '…');
+    },
+    tooltip: {
+        show: true
+    },
+          selectedMode: 'false',
+          bottom: 20,
+          data: ['物质形态要素','社会构成要素']
+      }],
+      toolbox: {
+        show : true,
+        feature : {
+            dataView : {show: true, readOnly: true},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+      animationDuration: 3000,
+      animationEasingUpdate: 'quinticInOut',
+      series: [{
+          name: '乡村聚落的构成要素',
+          type: 'graph',
+          layout: 'force',
+
+          force: {
+              repulsion: 50
+          },
+          data: [{
+              "name": "乡村聚落的构成要素",
+              // "x": 0,
+              // y: 0,
+              "symbolSize": 20,
+              "draggable": "true",
+              "value": 27
+
+          }, {
+              "name": "计算机科学与教育软件学院",
+              "value": 3,
+              "symbolSize": 9,
+              "category": "计算机科学与教育软件学院",
+              "draggable": "true"
+          }, {
+              "name": "计算机科学与技术",
+              "symbolSize": 3,
+              "category": "计算机科学与教育软件学院",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "软件工程",
+              "symbolSize": 3,
+              "category": "计算机科学与教育软件学院",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "网络工程",
+              "symbolSize": 3,
+              "category": "计算机科学与教育软件学院",
+              "draggable": "true",
+              "value": 1
+          },  {
+              "name": "社会构成要素",
+              "value": 3,
+              "symbolSize": 9,
+              "category": "社会构成要素",
+              "draggable": "true"
+          }, {
+              "name": "社会文化",
+              "symbolSize": 3,
+              "category": "社会构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "政府政策",
+              "symbolSize": 3,
+              "category": "社会构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "经济投入",
+              "symbolSize": 3,
+              "category": "社会构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "物质形态构成要素",
+              "value": 8,
+              "symbolSize": 7,
+              "category": "物质形态构成要素",
+              "draggable": "true"
+          }, {
+              "name": '非建筑类构成要素',
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": '建筑类构成要素',
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "祠堂",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "庙宇",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          },{
+              "name": "商业街",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "学校",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          },{
+              "name": "文化站",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          },{
+              "name": "医疗",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          },{
+              "name": "村委会",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          } ,
+          {
+              "name": "住宅",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "街巷",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "广场",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "古树",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "村井",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "树林",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "山水",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "绿化",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }, {
+              "name": "耕田",
+              "symbolSize": 3,
+              "category": "物质形态构成要素",
+              "draggable": "true",
+              "value": 1
+          }],
+          links: [ {
+              "source": "乡村聚落的构成要素",
+              "target": "社会构成要素"
+          }, {
+              "source": "物质形态构成要素",
+              "target": "非建筑类构成要素"
+          },{
+              "source": "社会构成要素",
+              "target": "经济投入"
+          }, {
+              "source": "社会构成要素",
+              "target": "社会文化"
+          }, {
+              "source": "社会构成要素",
+              "target": "政府政策"
+          }, {
+              "source": "乡村聚落的构成要素",
+              "target": "物质形态构成要素"
+          },{
+              "source": "物质形态构成要素",
+              "target": "建筑类构成要素"
+          }, {
+              "source": "建筑类构成要素",
+              "target": "祠堂"
+          },{
+              "source": "建筑类构成要素",
+              "target": "住宅"
+          } , {
+              "source": "建筑类构成要素",
+              "target": "村委会"
+          } ,{
+              "source": "建筑类构成要素",
+              "target": "庙宇"
+          } ,{
+              "source": "建筑类构成要素",
+              "target": "学校"
+          } ,{
+              "source": "建筑类构成要素",
+              "target": "商业街"
+          } ,{
+              "source": "建筑类构成要素",
+              "target": "文化站"
+          } ,{
+              "source": "建筑类构成要素",
+              "target": "医疗"
+          } ,{
+              "source": "非建筑类构成要素",
+              "target": "街巷"
+          } ,{
+              "source": "非建筑类构成要素",
+              "target": "广场"
+          } ,{
+              "source": "非建筑类构成要素",
+              "target": "古树"
+          } ,{
+              "source": "非建筑类构成要素",
+              "target": "村井"
+          } ,{
+              "source": "非建筑类构成要素",
+              "target": "树林"
+          } ,{
+              "source": "非建筑类构成要素",
+              "target": "山水"
+          } ,{
+              "source": "非建筑类构成要素",
+              "target": "绿化"
+          } ,{
+              "source": "非建筑类构成要素",
+              "target": "耕田"
+          } ,
+             ],
+          categories: [ {
+              'name': '社会构成要素'
+          }, {
+              'name': '物质形态构成要素'
+          }],
+          focusNodeAdjacency: true,
+          roam: true,
+          label: {
+              normal: {
+
+                  show: true,
+                  position: 'top',
+
+              }
+          },
+          lineStyle: {
+              normal: {
+                  color: 'source',
+                  curveness: 0,
+                  type: "solid"
+              }
+          }
+      }]
+  };
+			 
+			 
+			 
+			 
+		myChart.setOption(option)	  
+			  
+		</script>
+	</body>
+</html>

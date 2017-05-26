@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<div id="main" style="width: 900px ; height:600px ; margin-top: 200px;"></div>
+		
+	</head>
+
+	<body>
+		<script src="echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			let myChart = echarts.init(document.getElementById('main'));
+			myChart.setOption({
+				backgroundColor: "#a73e5c",
+				color: ['#ffd285', '#ff733f', '#ec4863'],
+				toolbox: {
+					feature: {
+						dataView: { show: true, readOnly: false },
+						magicType: { show: true,  },
+						restore: { show: true },
+						saveAsImage: { show: true }
+					}
+				},
+
+				title: [{
+					text: '河南省历年来的新型城镇化率',
+					left: '1%',
+					top: '6%',
+					textStyle: {
+						color: '#ffd285'
+					}
+				}, {
+					text: '人口占比分析',
+					left: '83%',
+					top: '88%',
+					textAlign: 'center',
+					textStyle: {
+						color: '#ffd285'
+					}
+				}],
+				tooltip: {
+					trigger: 'axis'
+				},
+				legend: {
+					x: 300,
+					top: '7%',
+					textStyle: {
+						color: '#ffd285',
+					},
+					data: ['河南', "河北", '陕西']
+				},
+				toolbox: {
+					show: true,
+					feature: {
+						mark: {
+							show: true
+						},
+						dataView: {
+							show: true,
+							readOnly: false
+						},
+						magicType: {
+							show: true,
+							type: ['line', 'bar']
+						},
+						restore: {
+							show: true
+						},
+						selfButtons: { //自定义按钮 danielinbiti,这里增加，selfbuttons可以随便取名字    
+							show: true, //是否显示    
+							title: '自定义', //鼠标移动上去显示的文字    
+							icon: 'test.png', //图标    
+							option: {},
+							onclick: function(option1) { //点击事件,这里的option1是chart的option信息    
+								alert('1'); //这里可以加入自己的处理代码，切换不同的图形    
+							}
+						},
+						saveAsImage: {
+							show: true
+						}
+					}
+				},
+				selfButtons: { //自定义按钮 danielinbiti,这里增加，selfbuttons可以随便取名字  
+					show: true, //是否显示  
+					title: '自定义', //鼠标移动上去显示的文字  
+					icon: 'test.png', //图标  
+					option: {},
+					onclick: function(option1) { //点击事件,这里的option1是chart的option信息  
+						alert('1'); //这里可以加入自己的处理代码，切换不同的图形  
+					}
+				},
+				grid: {
+					left: '1%',
+					right: '35%',
+					top: '16%',
+					bottom: '6%',
+					containLabel: true
+				},
+				toolbox: {
+					"show": false,
+					feature: {
+						saveAsImage: {}
+					}
+				},
+				xAxis: {
+					type: 'category',
+					"axisLine": {
+						lineStyle: {
+							color: '#c0576d'
+						}
+					},
+					"axisTick": {
+						"show": false
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#ffd285'
+						}
+					},
+					boundaryGap: false,
+					data: ['2004', '2005', '2006', '2007', '2008', '2009', '2010','2011','2012','2013','2014年']
+				},
+				yAxis: {
+					"axisLine": {
+						lineStyle: {
+							color: '#c0576d'
+						}
+					},
+					splitLine: {
+						show: true,
+						lineStyle: {
+							color: '#c0576d'
+						}
+					},
+					"axisTick": {
+						"show": false
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#ffd285'
+						}
+					},
+					type: 'value'
+				},
+				series: [{
+						name: '河南',
+						smooth: true,
+						type: 'line',
+						symbolSize: 8,
+						symbol: 'circle',
+						data: [28.9, 30.7, 32.5,34.33,36,37.7,38.5,40.5,42.4,43.8,45.20]
+					}, {
+						name: '河北',
+						smooth: true,
+						type: 'line',
+						symbolSize: 8,
+						symbol: 'circle',
+						data: [35.83, 37.69, 38.44,40.25,41.89,43.74,44.50,45.6,46.8,48.11,49.32]
+					}, {
+						name: '陕西',
+						smooth: true,
+						type: 'line',
+						symbolSize: 8,
+						symbol: 'circle',
+						data: [36.41, 37.23, 39.12,40.6,42.0,43.4,45.75,47.29,50.0,51.3,52.58]
+					},
+
+					{
+						type: 'pie',
+						center: ['83%', '33%'],
+						radius: ['25%', '30%'],
+						label: {
+							normal: {
+								position: 'center'
+							}
+						},
+						data: [{
+							value: 335,
+							name: '污染来源分析',
+							itemStyle: {
+								normal: {
+									color: '#ffd285'
+								}
+							},
+							label: {
+								normal: {
+									formatter: '{d} %',
+									textStyle: {
+										color: '#ffd285',
+										fontSize: 20
+
+									}
+								}
+							}
+						}, {
+							value: 260,
+							name: '占位',
+							tooltip: {
+								show: false
+							},
+							itemStyle: {
+								normal: {
+									color: '#b04459'
+								}
+							},
+							label: {
+								normal: {
+									textStyle: {
+										color: '#ffd285',
+									},
+									formatter: '\n农村人口'
+								}
+							}
+						}]
+					},
+
+					{
+						type: 'pie',
+						center: ['83%', '72%'],
+						radius: ['25%', '30%'],
+						label: {
+							normal: {
+								position: 'center'
+							}
+						},
+						data: [{
+							value: 435,
+							name: '污染来源分析',
+							itemStyle: {
+								normal: {
+									color: '#ff733f'
+								}
+							},
+							label: {
+								normal: {
+									formatter: '{d} %',
+									textStyle: {
+										color: '#ff733f',
+										fontSize: 20
+
+									}
+								}
+							}
+						}, {
+							value: 60,
+							name: '占位',
+							tooltip: {
+								show: false
+							},
+							itemStyle: {
+								normal: {
+									color: '#b04459'
+
+								}
+							},
+							label: {
+								normal: {
+									textStyle: {
+										color: '#ff733f',
+									},
+									formatter: '\n常住口'
+								}
+							}
+						}]
+					}
+				]
+			});
+		</script>
+	</body>
+</html>
